@@ -1,5 +1,3 @@
-// USER SERVICE IMPL WORKS DO NOT TOUCH
-
 package com.cardgame.service;
 
 import java.util.List;
@@ -7,35 +5,34 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cardgame.entities.Card;
 import com.cardgame.entities.Player;
-import com.cardgame.repository.PlayerRepo;
+import com.cardgame.repository.CardRepo;
 
 @Service
-public class CardServiceImpl implements PlayerService {
+public class CardServiceImpl implements CardService {
 	
 	@Autowired
-	private PlayerRepo playerRepo;
+	private CardRepo cardRepo;
 
 	@Override
-	public List<Player> index() {
-		return playerRepo.findAll();
+	public List<Card> index() {
+		return cardRepo.findAll();
 	}
 
 	@Override
-	public Player show(String playername, Integer id) {
-		return playerRepo.findByName(playername);
+	public Card show(String playername, Integer id) {
+		return cardRepo.findById(id).get();
 	}
 
 	@Override
-	public Player create(Player player) {
-		player.setWins(0);
-		playerRepo.saveAndFlush(player);
-		return null;
+	public Card create(Card card) {
+		return cardRepo.saveAndFlush(card);
 	}
 
 	@Override
 	public void destroy(String playername, int id) {
-		playerRepo.deleteById(id);
+		cardRepo.deleteById(id);
 	}
 
 }
