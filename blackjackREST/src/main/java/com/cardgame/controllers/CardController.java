@@ -23,7 +23,7 @@ public class CardController {
 	@Autowired
 	private CardService cardService;
 
-	@RequestMapping(path = "cart/ping", method = RequestMethod.GET)
+	@RequestMapping(path = "ping", method = RequestMethod.GET)
 	public String ping() {
 		return "pong";
 	}
