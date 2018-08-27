@@ -10,13 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cardgame.data.CardService;
+import com.cardgame.entities.Card;
+
 @RestController
 @RequestMapping("api")
 @CrossOrigin({ "*", "http://localhost:4200" })
 public class CardController {
 
 	@Autowired
-	// private ElectricBillService ebSI;
+	private CardService cSI;
 
 	// DONE
 	@RequestMapping(path = "ping", method = RequestMethod.GET)
@@ -24,27 +27,39 @@ public class CardController {
 		return "pong";
 	}
 
-	// @RequestMapping(path = "electricbills", method = RequestMethod.GET)
+	@RequestMapping(path = "cards", method = RequestMethod.GET)
+	public List<Card> index() {
+		return cSI.index();
+	}
 
-	// @RequestMapping(path = "electricbills/{id}", method = RequestMethod.GET)
+	@RequestMapping(path = "cards/{id}", method = RequestMethod.GET)
+	public Card show(@PathVariable int id) {
+		return cSI.show(id);
+	}
 
-	// @RequestMapping(path = "electricbills", method = RequestMethod.POST)
+	@RequestMapping(path = "cards", method = RequestMethod.POST)
+	public Card create(@RequestBody Card jsonCard) {
+		return cSI.create(jsonCard);
+	}
 
-	// @RequestMapping(path = "electricbills/{id}", method = RequestMethod.PUT)
+	@RequestMapping(path = "cards/{id}", method = RequestMethod.PUT)
+	public Card replace(@RequestBody Card jsonCard, @PathVariable int id) {
+		return cSI.replace(jsonCard, id);
+	}
 
-	// @RequestMapping(path = "electricbills/{id}", method = RequestMethod.PATCH)
+	@RequestMapping(path = "cards/{id}", method = RequestMethod.PATCH)
+	public Card update(@RequestBody Card jsonCard, @PathVariable int id) {
+		return cSI.update(jsonCard, id);
+	}
 
-	// @RequestMapping(path = "electricbills/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(path = "cards/{id}", method = RequestMethod.DELETE)
+	public Boolean delete(@PathVariable int id) {
+		return cSI.delete(id);
+	}
 
-	// @RequestMapping(path = "electricbills/search/manager/{lastName}", method =
-	// RequestMethod.GET)
+	@RequestMapping(path = "cards/search/player/{id}", method = RequestMethod.GET)
+	public List<Card> findByPlayerId(@PathVariable int playerId) {
+		return cSI.findByPlayer(playerId);
+	}
 
-	// @RequestMapping(path = "electricbills/search/price/{low}/{high}", method =
-	// RequestMethod.GET)
-
-	// @RequestMapping(path = "electricbills/search/wattage/{low}/{high}", method =
-	// RequestMethod.GET)
-
-	// @RequestMapping(path = "electricbills/search/year/{low}/{high}", method =
-	// RequestMethod.GET)
 }
