@@ -27,11 +27,13 @@ public class CardController {
 		return "pong";
 	}
 
+	// DONE
 	@RequestMapping(path = "cards", method = RequestMethod.GET)
 	public List<Card> index() {
 		return cSI.index();
 	}
 
+	// DONE
 	@RequestMapping(path = "cards/{id}", method = RequestMethod.GET)
 	public Card show(@PathVariable int id) {
 		return cSI.show(id);
