@@ -19,12 +19,10 @@ public class Card {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "deck_id")
 	private Deck deck;
 
-	@JsonIgnore
 	@OneToOne
 	@JoinTable(name = "hand", joinColumns = @JoinColumn(name = "card_id"), inverseJoinColumns = @JoinColumn(name = "player_id"))
 	private Player player;

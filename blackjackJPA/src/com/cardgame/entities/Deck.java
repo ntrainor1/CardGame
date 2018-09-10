@@ -8,8 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.cardgame.entities.Card;
-import com.cardgame.entities.Deck;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Deck {
@@ -19,6 +18,7 @@ public class Deck {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	@JsonIgnore
 	@OneToMany(mappedBy="deck")
 	private List<Card> cards;
 

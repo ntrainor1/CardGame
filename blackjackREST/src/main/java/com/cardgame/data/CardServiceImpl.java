@@ -75,19 +75,4 @@ public class CardServiceImpl implements CardService {
 		return cRepo.findByPlayerId(playerId);
 	}
 
-	// @Override
-	// public ElectricBill replace(ElectricBill jsonBill, int id) {
-	// ElectricBill managedBill = ebRepo.findById(id).get();
-	//
-	// managedBill.setCost(jsonBill.getCost());
-	// managedBill.setYear(jsonBill.getYear());
-	// managedBill.setWattage(jsonBill.getWattage());
-	// managedBill.setManagerFirstName(jsonBill.getManagerFirstName());
-	// managedBill.setManagerLastName(jsonBill.getManagerLastName());
-	//
-	// ebRepo.flush();
-	//
-	// return ebRepo.findById(id).get();
-	// }
-
 }

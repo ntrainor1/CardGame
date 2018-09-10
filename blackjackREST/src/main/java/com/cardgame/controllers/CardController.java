@@ -22,7 +22,7 @@ public class CardController {
 	private CardService cSI;
 
 	// DONE
-	@RequestMapping(path = "ping", method = RequestMethod.GET)
+	@RequestMapping(path = "cards/ping", method = RequestMethod.GET)
 	public String ping() {
 		return "pong";
 	}
@@ -39,29 +39,10 @@ public class CardController {
 		return cSI.show(id);
 	}
 
-	@RequestMapping(path = "cards", method = RequestMethod.POST)
-	public Card create(@RequestBody Card jsonCard) {
-		return cSI.create(jsonCard);
-	}
-
-	@RequestMapping(path = "cards/{id}", method = RequestMethod.PUT)
-	public Card replace(@RequestBody Card jsonCard, @PathVariable int id) {
-		return cSI.replace(jsonCard, id);
-	}
-
-	@RequestMapping(path = "cards/{id}", method = RequestMethod.PATCH)
-	public Card update(@RequestBody Card jsonCard, @PathVariable int id) {
-		return cSI.update(jsonCard, id);
-	}
-
-	@RequestMapping(path = "cards/{id}", method = RequestMethod.DELETE)
-	public Boolean delete(@PathVariable int id) {
-		return cSI.delete(id);
-	}
-
+	// DONE
 	@RequestMapping(path = "cards/search/player/{id}", method = RequestMethod.GET)
-	public List<Card> findByPlayerId(@PathVariable int playerId) {
-		return cSI.findByPlayer(playerId);
+	public List<Card> findByPlayerId(@PathVariable int id) {
+		return cSI.findByPlayer(id);
 	}
 
 }
