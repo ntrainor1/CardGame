@@ -31,6 +31,8 @@ class PlayerTest {
 	void test_player_mappings() {
 		assertEquals("Dealer", player.getName());
 		assertEquals(0, player.getWins());
+		assertEquals("ACE", player.getHand().get(0).getRank());
+		assertEquals("HEARTS", player.getHand().get(0).getSuit());
 	}
 	
 	@Test

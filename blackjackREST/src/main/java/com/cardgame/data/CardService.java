@@ -17,7 +17,5 @@ public interface CardService {
 	Card update(Card jsonCard, int id);
 
 	Boolean delete(int id);
-
-	List<Card> findByPlayer(int playerId);
 	
 }

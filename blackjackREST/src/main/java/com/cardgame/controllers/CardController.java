@@ -39,10 +39,4 @@ public class CardController {
 		return cSI.show(id);
 	}
 
-	// DONE
-	@RequestMapping(path = "cards/search/player/{id}", method = RequestMethod.GET)
-	public List<Card> findByPlayerId(@PathVariable int id) {
-		return cSI.findByPlayer(id);
-	}
-
 }

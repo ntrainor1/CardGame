@@ -8,6 +8,4 @@ import com.cardgame.entities.Card;
 
 public interface CardRepository extends JpaRepository<Card, Integer> {
 	
-	public List<Card> findByPlayerId(int playerId);
-	
 }

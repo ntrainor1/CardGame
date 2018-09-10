@@ -32,8 +32,6 @@ class CardTest {
 		assertEquals(1, card.getDeck().getId());
 		assertEquals("TWO", card.getRank());
 		assertEquals("HEARTS", card.getSuit());
-		assertEquals(0, card.getPlayer().getWins());
-		assertEquals("Dealer", card.getPlayer().getName());
 	}
 	
 	@Test

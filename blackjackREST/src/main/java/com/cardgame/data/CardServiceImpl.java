@@ -70,9 +70,4 @@ public class CardServiceImpl implements CardService {
 		return true;
 	}
 
-	@Override
-	public List<Card> findByPlayer(int playerId) {
-		return cRepo.findByPlayerId(playerId);
-	}
-
 }
